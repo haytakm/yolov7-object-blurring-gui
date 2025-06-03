@@ -121,9 +121,16 @@ def detect(save_img=False):
                     
                     #Add Object Blurring Code
                     #..................................................................
-                    crop_obj = im0[int(xyxy[1]):int(xyxy[3]),int(xyxy[0]):int(xyxy[2])]
-                    blur = cv2.blur(crop_obj,(blurratio,blurratio))
-                    im0[int(xyxy[1]):int(xyxy[3]),int(xyxy[0]):int(xyxy[2])] = blur
+                    x1, y1, x2, y2 = map(int, xyxy)
+                    # Clip coordinates to image size to avoid negative or out-of-bounds indices
+                    x1 = max(0, min(x1, im0.shape[1]))
+                    x2 = max(0, min(x2, im0.shape[1]))
+                    y1 = max(0, min(y1, im0.shape[0]))
+                    y2 = max(0, min(y2, im0.shape[0]))
+                    if y2 > y1 and x2 > x1:
+                        crop_obj = im0[y1:y2, x1:x2]
+                        blur = cv2.blur(crop_obj, (blurratio, blurratio))
+                        im0[y1:y2, x1:x2] = blur
                     #..................................................................
                     
                     if save_txt:  # Write to file
