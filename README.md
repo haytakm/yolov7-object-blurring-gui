@@ -43,6 +43,12 @@ python detect_and_blur.py --weights yolov7.pt --source "your video.mp4" --classe
 #hide-detected-bounding-boxes
 python detect_and_blur.py --weights yolov7.pt --source "your video.mp4" --classes 0 --blurratio 50 --hidedetarea
 ```
+- Alternatively you can launch a simple web interface using **Streamlit** to adjust these parameters interactively.
+  Run the following command and open the provided URL in your browser:
+  ```
+  streamlit run app.py
+  ```
+  The page lets you choose the source file, blur ratio and other arguments without using the command line.
 - Output file will be created in the <b>working-dir/runs/detect/exp</b> with original filename.
 
 ### Results
