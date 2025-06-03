@@ -38,10 +38,10 @@ pip install -r requirements.txt
 python detect_and_blur.py --weights yolov7.pt --source "your video.mp4" --blurratio 20
 
 #for specific class (person or 0 classes)
-python detect_and_blur.py --weights yolov7.pt --source "your video.mp4" -classes 0 --blurratio 50
+python detect_and_blur.py --weights yolov7.pt --source "your video.mp4" --classes 0 --blurratio 50
 
 #hide-detected-bounding-boxes
-python detect_and_blur.py --weights yolov7.pt --source "your video.mp4" -classes 0 --blurratio 50 --hidedetarea
+python detect_and_blur.py --weights yolov7.pt --source "your video.mp4" --classes 0 --blurratio 50 --hidedetarea
 ```
 - Output file will be created in the <b>working-dir/runs/detect/exp</b> with original filename.
 
